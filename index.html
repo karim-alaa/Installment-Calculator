@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>حاسبة القسط</title>
+	<link rel="icon" type="image/png" href="favicon.png" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+	<link rel="stylesheet" href="site.css" />
+</head>
+
+<body dir="rtl">
+	<div class="container">
+		<h1 id="h1">حاسبة القسط</h1>
+		<!-- form -->
+		<form id="form" name="form">
+			<!-- total -->
+			<div class="form-group">
+				<label for="total">ثمن الوحدة</label>
+				<input type="number" id="total" value="750000" placeholder="i.e 600000" required minlength="5" maxlength="100" name="total" />
+			</div>
+			<!-- cahce -->
+			<div class="form-group">
+				<label for="cache">المقدم</label>
+				<input type="number" id="cache" value="200000" placeholder="i.e 200000" minlength="4" maxlength="100" required name="cache" />
+			</div>
+			<!-- benefit -->
+			<div class="form-group">
+				<label for="benefit">الفائدة %</label>
+				<input type="text" id="benefit" value="8" placeholder="i.e 8" required name="benefit" />
+			</div>
+			<!-- isDiminishing -->
+			<div class="form-group checkbox">
+				<label for="isDiminishing">الفائدة متناقصة</label>
+				<input type="checkbox" id="isDiminishing" required name="isDiminishing" checked />
+			</div>
+			<!-- months -->
+			<div class="form-group">
+				<label for="months">عدد شهور القسط</label>
+				<input type="number" required id="months" value="120" placeholder="i.e 120" name="months" />
+			</div>
+		</form>
+        <button onClick='calculate()'>أحسب القسط</button>
+		<!-- error ? success message -->
+		<div class="message-container" dir = "ltr">
+			<span id="result"></span>
+		</div>
+	</div>
+	<!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="calculator.js"></script>
+</body>
+
+</html>
