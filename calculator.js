@@ -35,7 +35,7 @@ function calculate(){
 									
 				amountPaid += totalYearMonthlyInstalments/ yearMonths;
 
-				var fundBack = Math.round(totalYearMonthlyInstalments + (totalFund/yearMonths));
+				var fundBack = Math.round(totalYearMonthlyInstalments + (totalFund / totalYears));
 				totalFundBack += fundBack;
                 result += "<p>" + "Year "+i+": Total Paid: "+ fundBack + "</p>";
                 result += "<p>" + "Year "+i+": Monthly Installment: "+Math.round(fundBack / yearMonths) + "</p>";
@@ -44,7 +44,9 @@ function calculate(){
             result = resultHead + result;
 		}else{
 			var totalBenefit = Math.round(totalFund * benefit * totalYears);
-			var monthlyInstallment = Math.round(totalBenefit / months);
+			var totalFundBack = Math.round((totalBenefit + totalFund));
+			var monthlyInstallment = Math.round(totalFundBack  / months);
+			result += "<p>" + "Total Fund Back: " + totalFundBack + "</p>";
             result += "<p>" + "Total Benefit: " + totalBenefit + "</p>";
             result += "<p>" + "Monthly Installment: " + monthlyInstallment + "</p>";
 		}
