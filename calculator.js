@@ -35,9 +35,10 @@ function calculate(){
 									
 				amountPaid += totalYearMonthlyInstalments/ yearMonths;
 
-				totalFundBack += Math.round(totalYearMonthlyInstalments);
-                result += "<p>" + "Year "+i+": Total Paid: "+Math.round(totalYearMonthlyInstalments) + "</p>";
-                result += "<p>" + "Year "+i+": Monthly Installment: "+Math.round(totalYearMonthlyInstalments /yearMonths) + "</p>";
+				var fundBack = Math.round(totalYearMonthlyInstalments + (totalFund/yearMonths));
+				totalFundBack += fundBack;
+                result += "<p>" + "Year "+i+": Total Paid: "+ fundBack + "</p>";
+                result += "<p>" + "Year "+i+": Monthly Installment: "+Math.round(fundBack / yearMonths) + "</p>";
 			}
 			resultHead += "Total Fund Back: " + totalFundBack + "</p>";
             result = resultHead + result;
