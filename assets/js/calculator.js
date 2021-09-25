@@ -1,8 +1,8 @@
 var isDiminishing = false;
-var total = "";
-var cache = "";
-var benefit = "";
-var months = "";
+var total = 0;
+var cache = 0;
+var benefit = 0;
+var months = 0;
 var remaningMonths = 0;
 var totalYears = 0;
 var amountPaid = 0;
@@ -18,6 +18,7 @@ function calculate(){
 		totalYears = Math.round(months/12);
 		amountPaid = 0;
 		totalFund = total-cache;
+		result = resultHead = "";
         if(isDiminishing){
 			var totalFundBack = 0;
 			result += "<table class=\"table table-striped table-hover\">";
