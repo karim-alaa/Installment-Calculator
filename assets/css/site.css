@@ -13,28 +13,26 @@ body {
 	background-color: #f3f3f3;
 }
 
-/* container */
-
-.container {
-	width: 480px;
-	/* height: 630px; */
+.app-container {
+	max-width: 450px;
 	background-color: #fff;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	border-radius: 16px;
 	box-shadow: 0 5px 36px 12px rgba(0, 0, 0, 0.04);
+	margin-top: 10px;
 }
-
-/*  form */
 
 form {
 	width: 90%;
 }
+
 .form-group {
 	height: 65px;
 	margin: 8px 0;
 }
+
 label {
 	position: relative;
 	bottom: 3px;
@@ -42,6 +40,7 @@ label {
 	color: #474747;
 	font-weight: 500;
 }
+
 input {
 	width: 100%;
 	border: 1px solid #f3f3f3;
@@ -53,12 +52,15 @@ input {
 	font-family: inherit;
 	transition: all 0.3s;
 }
+
 input:valid {
 	border: 1px solid #79ff8f;
 }
+
 input:invalid {
 	border: 1px solid #ff8979;
 }
+
 button {
 	border: none;
 	cursor: pointer;
@@ -74,6 +76,7 @@ button {
 button:hover {
 	background-color: #222;
 }
+
 button:focus {
 	outline: none;
 }
@@ -84,6 +87,7 @@ button:focus {
 	background-color: #f7f7f7;
 	margin: 10px;
 }
+
 #message {
 	padding: 20px 10px;
 	font-size: 0.9em;
@@ -91,10 +95,10 @@ button:focus {
 	margin: 0;
 	text-align: center;
 }
+
 h1 {
 	font-size: 1.6em;
 }
-
 
 #isDiminishing{
     width: fit-content;
@@ -103,4 +107,8 @@ h1 {
 
 .checkbox{
     height: fit-content;
+}
+
+span{
+	text-align: center;
 }

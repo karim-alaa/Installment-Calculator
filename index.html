@@ -5,13 +5,13 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>حاسبة القسط</title>
-	<link rel="icon" type="image/png" href="favicon.png" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
-	<link rel="stylesheet" href="site.css" />
+	<link rel="icon" type="image/jpg" href="assets/images/app.jpg" />
+	<link rel="stylesheet" href="assets/css/site.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 </head>
 
 <body dir="rtl">
-	<div class="container">
+	<div class="app-container">
 		<h1 id="h1">حاسبة القسط</h1>
 		<!-- form -->
 		<form id="form" name="form">
@@ -43,13 +43,13 @@
 		</form>
         <button onClick='calculate()'>أحسب القسط</button>
 		<!-- error ? success message -->
-		<div class="message-container" dir = "ltr">
+		<div class="message-container container table-responsive py-5" dir = "rtl">
 			<span id="result"></span>
 		</div>
 	</div>
 	<!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="calculator.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/calculator.js"></script>
 </body>
 
 </html>

@@ -3,20 +3,31 @@ var total = "";
 var cache = "";
 var benefit = "";
 var months = "";
-
+var remaningMonths = 0;
+var totalYears = 0;
+var amountPaid = 0;
+var totalFund = 0;
+var result = "";
+var resultHead = "";
 
 function calculate(){
     if(IsFormValid()){
         isDiminishing = $("input[type=checkbox][name=isDiminishing]:checked" ).val() == 'on';
         benefit = benefit / 100;
-        var remaningMonths = months;
-		var totalYears = Math.round(months/12);
-		var amountPaid = 0;
-		var totalFund = total-cache;
-        var result = "";
-        var resultHead = "<p> Result: </p>";
+        remaningMonths = months;
+		totalYears = Math.round(months/12);
+		amountPaid = 0;
+		totalFund = total-cache;
         if(isDiminishing){
 			var totalFundBack = 0;
+			result += "<table class=\"table table-striped table-hover\">";
+			result += "<thead class=\"thead-dark\">";
+			result += "<tr>";
+			result += "<th class=\"col\">السنه</th>";
+			result += "<th class=\"col\">المبلغ الكلى</th>";
+			result += "<th scope=\"col\">القسط الشهرى</th>";
+			result += "</tr>";
+			result += "</thead>";
 			for(var i = 1; i <= totalYears; i++)
 			{
 				var yearMonths = 0;
@@ -32,23 +43,27 @@ function calculate(){
 					totalYearMonthlyInstalments = totalFund * benefit * yearMonths;
 				else
 					totalYearMonthlyInstalments = (totalFund - amountPaid) * benefit * (yearMonths / 12);
-									
 				amountPaid += totalYearMonthlyInstalments/ yearMonths;
-
 				var fundBack = Math.round(totalYearMonthlyInstalments + (totalFund / totalYears));
 				totalFundBack += fundBack;
-                result += "<p>" + "Year "+i+": Total Paid: "+ fundBack + "</p>";
-                result += "<p>" + "Year "+i+": Monthly Installment: "+Math.round(fundBack / yearMonths) + "</p>";
-			}
-			resultHead += "Total Fund Back: " + totalFundBack + "</p>";
+				result += "<tbody>";
+				result +="<tr>";
+				result += "<th scope=\"row\">"+i+"</th>";
+				result += "<th>"+fundBack+"</th>";
+				result += "<th>"+Math.round(fundBack / yearMonths)+"</th>";
+				result +="</tr>";
+				result += "</tbody>";
+            }
+			resultHead += "<p> إجمالى المبلغ المدفوع فى كل الاقساط: " + totalFundBack + "</p>";
+			result += "</table>";
             result = resultHead + result;
 		}else{
 			var totalBenefit = Math.round(totalFund * benefit * totalYears);
 			var totalFundBack = Math.round((totalBenefit + totalFund));
 			var monthlyInstallment = Math.round(totalFundBack  / months);
-			result += "<p>" + "Total Fund Back: " + totalFundBack + "</p>";
-            result += "<p>" + "Total Benefit: " + totalBenefit + "</p>";
-            result += "<p>" + "Monthly Installment: " + monthlyInstallment + "</p>";
+			result += "<p>" + "إجمالى المبلغ المدفوع فى كل الاقساط: " + totalFundBack + "</p>";
+            result += "<p>" + "مقدار الفائدة: " + totalBenefit + "</p>";
+            result += "<p>" + "القسط الشهرى: " + monthlyInstallment + "</p>";
 		}
         $('#result').html(result);
     }
@@ -59,7 +74,6 @@ function IsFormValid(){
     cache = $("#cache").val();
     benefit = $("#benefit").val();
     months = $("#months").val();
-
     if(total != "" && cache != "" && benefit != "" && months != "")
         return true;
     return false;
